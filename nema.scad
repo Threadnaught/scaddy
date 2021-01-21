@@ -73,7 +73,8 @@ module nema_14_round(){
 	}
 }
 
-$fn=48;
+//$fn=48;
 //nema_17();
-//nema_8_pnp();
-nema_14_round();
+//translate([0,50,0])nema_17(20);
+//translate([0,100,0])nema_14_round();
+//translate([0,150,0])nema_8_pnp();
