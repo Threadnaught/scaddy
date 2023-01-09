@@ -42,11 +42,6 @@ module nema_17(depth=42){
 		shoulder_dia=22,shoulder_height=2);
 }
 
-//Thin 20mm stepper
-module nema_17_thin(){
-	//nema_17(depth=20):
-}
-
 //Hollow 8mm stepper, like one of these: https://www.alibaba.com/product-detail/8HY1002-10SK-nema-8-hollow-hollow_60076603585.html?spm=a2700.galleryofferlist.normal_offer.d_title.40f921a2eyXW43
 module nema_8_pnp(){
 	nema(face_size=20.5,depth=30,
@@ -55,11 +50,18 @@ module nema_8_pnp(){
 		shoulder_dia=15,shoulder_height=1.5);
 }
 
+module nema_11(depth=28.5){
+	nema(face_size=28.2,depth=depth,
+		bolt_cross=23,bolt_dia=2.2,bolt_depth=2.5,
+		shaft_dia=5,shaft_len=20,shaft_other=0,hollow_shaft_dia=0,
+		shoulder_dia=22,shoulder_height=2);
+}
+
 //Lightweight nema 14, like one of these: https://www.alibaba.com/product-detail/0-9-Degree-Frame-36mm-nema_1600147409651.html?spm=a2700.galleryofferlist.normal_offer.d_image.564e4eb5ebwqj5
 module nema_14_round(){
 	bolt_cross = 43.85;
 	bolt_dia = 3;
-	difference(){
+	rotate([0,0,-45])difference(){
 		union(){
 			//Body:
 			translate([0,0,-20])cylinder(20,36.3/2,36.3/2);
@@ -77,8 +79,9 @@ module nema_14_round(){
 	}
 }
 
-//$fn=48;
+$fn=48;
 //nema_17();
 //translate([0,50,0])nema_17(20);
 //translate([0,100,0])nema_14_round();
 //translate([0,150,0])nema_8_pnp();
+nema_11();
